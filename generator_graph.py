@@ -54,13 +54,9 @@ def generate_graph(path):
                 dic_conf[id_key] = conf
                 dic_pub[id_key] = [id_pub]
 
-    ## Definition of graph with default attributes
-
+    ## Definition of graph by dictionary of authors
     G = nx.from_dict_of_lists(dic_auth)
-    nx.set_node_attributes(G, "", "author")
-    nx.set_node_attributes(G, 0, "id_conference_int")
-    nx.set_node_attributes(G, "", "id_conference")
-    nx.set_node_attributes(G, 0, "id_publication_int")
+
 
     ## Setting of attributes per each node
     for u, v, d in G.edges(data=True):
