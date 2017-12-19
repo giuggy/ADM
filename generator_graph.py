@@ -57,9 +57,14 @@ def generate_graph(path):
     ## Definition of graph by dictionary of authors
     G = nx.from_dict_of_lists(dic_auth)
 
+    ## List with isolated nodes 
+    lst_no_edge = set(dic_auth.keys())
 
     ## Setting of attributes per each node
     for u, v, d in G.edges(data=True):
+        
+        lst_no_edge = set(lst_no_edge) - {u} - {v}
+        
         G.node[u]['author'] = dic_conf[u]['author']
         id_conf, id_conf_int = zip(*dic_conf[u]['id_conference'])
         G.node[u]["id_conference_int"], G.node[u]["id_conference"] = list(id_conf), list(id_conf_int)
@@ -73,5 +78,13 @@ def generate_graph(path):
         a, b = set(dic_pub[u]), set(dic_pub[v])
         d['weight'] = 1 - len(a.intersection(b)) / float(len(a.union(b)))
 
+    # Add attributes to isolated nodes
+    sub_g = G.subgraph(lst_no_edge)
+    for u in sub_g.nodes():
+        G.node[u]['author'] = dic_conf[u]['author']
+        id_conf, id_conf_int = zip(*dic_conf[u]['id_conference'])
+        G.node[u]["id_conference_int"] , G.node[u]["id_conference"] = list(id_conf), list(id_conf_int) 
+        G.node[u]["id_publication_int"] = dic_pub[u]
+    
     return G
 
