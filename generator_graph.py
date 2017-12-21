@@ -59,9 +59,7 @@ def generate_graph(path):
 
     ## Setting of attributes per each node
     for u, v, d in G.edges(data=True):
-        
-        lst_no_edge = set(lst_no_edge) - {u} - {v}
-        
+
         G.node[u]['author'] = dic_conf[u]['author']
         id_conf, id_conf_int = zip(*dic_conf[u]['id_conference'])
         G.node[u]["id_conference_int"], G.node[u]["id_conference"] = list(id_conf), list(id_conf_int)
