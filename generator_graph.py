@@ -64,6 +64,11 @@ def generate_graph(path):
         id_conf, id_conf_int = zip(*dic_conf[u]['id_conference'])
         G.node[u]["id_conference_int"], G.node[u]["id_conference"] = list(id_conf), list(id_conf_int)
         G.node[u]["id_publication_int"] = dic_pub[u]
+        
+        G.node[v]['author'] = dic_conf[v]['author']
+        id_conf, id_conf_int = zip(*dic_conf[v]['id_conference'])
+        G.node[v]["id_conference_int"], G.node[v]["id_conference"] = list(id_conf), list(id_conf_int)
+        G.node[v]["id_publication_int"] = dic_pub[v]
        
         a, b = set(dic_pub[u]), set(dic_pub[v])
         d['weight'] = 1 - len(a.intersection(b)) / float(len(a.union(b)))
