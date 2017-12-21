@@ -57,9 +57,6 @@ def generate_graph(path):
     ## Definition of graph by dictionary of authors
     G = nx.from_dict_of_lists(dic_auth)
 
-    ## List with isolated nodes 
-    lst_no_edge = set(dic_auth.keys())
-
     ## Setting of attributes per each node
     for u, v, d in G.edges(data=True):
         
@@ -73,6 +70,10 @@ def generate_graph(path):
         a, b = set(dic_pub[u]), set(dic_pub[v])
         d['weight'] = 1 - len(a.intersection(b)) / float(len(a.union(b)))
 
+    
+    ## List with isolated nodes 
+    list_no_edge = nx.isolates(G)
+    
     # Add attributes to isolated nodes
     for u in list_no_edge:
         G.node[u]['author'] = dic_conf[u]['author']
