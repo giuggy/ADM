@@ -6,9 +6,9 @@
   1. visualize_graph : This function is supposed to visualize the given graph using standard methods of "networkx" and "matplotlib".
   2. generate_graph : This function is supposed to get a path to the file as input and return a graph containing the information of the given file as output. 
     in the first step, it loads the data using "json" library's load method. then creates 3 empty dictionaries as follow:
-      -- dic_auth : the keys will be the authors' ids, the values will be the co-authors
-      -- dic_conf : the keys will be the authors' ids, the values will be important attributes like, the name, etc.
-      -- dic_pub : the keys will be the authors' ids again, the values will be the pulcations by the author.
+      - dic_auth : the keys will be the authors' ids, the values will be the co-authors
+      - dic_conf : the keys will be the authors' ids, the values will be important attributes like, the name, etc.
+      - dic_pub : the keys will be the authors' ids again, the values will be the pulcations by the author.
     
    
   
