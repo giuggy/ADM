@@ -20,7 +20,7 @@ We have created this file to call all the functions we have build in order to fi
    
   
 # Statistics {Exercise II}
-  here we have two methods:
+  Here, we have two methods:
   
   1. stat_conference:
   There are two input for this function. One is the graph and the other is the conference with the unique string or int.
@@ -30,4 +30,11 @@ We have created this file to call all the functions we have build in order to fi
   2. stat_authors:
   This function takes three inputs. first the author, the second is "d" which represents maximum hopping distance, and the graph. If the author is a string, we find the id based on that string. If the author is an integer then we can use the integer directly. Then with the method shortest path from the author to every node, we find the dictionary of the authors for whom the distance between the author and them is less or equal than "d". 
   Finally we take the nodes in the keys of dictionary of the shortest path and create a subgraph. 
+  
+
+
+# Generalized Erdos Number {Exercise III}
+  In this part we have implemanted the third part of the homework. In thr file generalized_E_number.py, we can find two function:
+  The first one implements the algorithm of dijkstra between two nodes. The time of execution that we have obtained is more or less similar to the time requested by the method of networkx. 
+  The second function implements the method of Group number. For each node in the graph, it calculates the shortest path to all the subset nodes passed in input. In the end the result is computed taking for each node in the subset, the minimum weigth in the set of the shortest paths calculated previously.
   
