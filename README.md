@@ -16,10 +16,8 @@ We have created this file to call all the functions we have build in order to fi
     Then, using from_dict_of_lists method of networkx library, created a graph, called G, with dic_auth which is a dictionary of lists. 
     Then, we added the attributes to the nodes looping on the edges of our graph G. We strongly needed the attributes to calculate the Jaccard similarity of the authors which was the next step. Since this loop was around the nodes which had at least one edge, we have to also set the attributes of the isolated nodes. We found the isolated nodes with standard method of isolates in networkx library and set the attributes for those nodes for further use.
     The process of creating the graph ended with returning the graph G.
-    
-   
-  
-# Statistics {Exercise II}
+
+## Statistics {Exercise II}
 
 Here, we have two methods:
 
