@@ -25,8 +25,8 @@ def stat_conference(graph, conference):
     gg.visualize_graph(sub_graph)
 
     ## Statistics
-    degree_seq = sorted(nx.degree(sub_graph), key=itemgetter(0))
-    nodes_lst, degree_lst = zip(*degree_seq)
+    degree_seq = sorted(nx.degree(sub_graph).items(), key=itemgetter(0))
+    nodes_lst, degree_lst = tuple(zip(*degree_seq))
 
     clos = sorted(nx.closeness_centrality(sub_graph, wf_improved=False).items(), key=itemgetter(0))
     closeness_lst = tuple(zip(*clos))[1]
