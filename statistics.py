@@ -53,7 +53,7 @@ def stat_conference(graph, conference):
 
 def stat_authors(author, d, G):
     '''
-    This function elaborates the induce graph which has the nodes that at most d hops distance with the input author
+    This function produces the induce graph which has the nodes that at most d hops distance with the input author
     :param author: input node
     :param d: hops distance
     :param G: input graph
