@@ -34,7 +34,10 @@ We have created this file to call all the functions we have build in order to fi
 
 
 # Generalized Erdos Number {Exercise III}
-  In this part we have implemanted the third part of the homework. In the file "generalized_E_number.py", we can find two function.
-  The first one implements the algorithm of dijkstra between two nodes. The time of execution that we have obtained is more or less similar to the time requested by the method of networkx. 
-  The second function implements the method of Group number. Fist, it calculates the shortest path to all the subset nodes passed in input to all the nodes in the graph. In the end the result is computed taking for each node in the graph, the minimum weigth in the set of the shortest paths calculated previously.
+  In the file "generalized_E_number.py", we can find two functions.
+  The first one implements the dijkstra's algorithm: it returns the weight of the shortest path between two nodes in the case  that the ending node is specify; it returns, instead, all the shortest path from the starting node to the others if no ending node is specified. The time of execution that we have obtained is more or less similar to the time requested by the method of networkx.
+  
+  The second function implements the method of Group number. First, it calculates the shortest path between all the subset's nodes passed in input and the nodes in the graph. In the end, since we'll have different values (equal to len(subset)) of the shortest path for each node of the graph, the result is computed taking the minimum weight in the set of the shortest paths calculated previously.
+  
+  In conclusion we discuss about how it is possible to optimize the calculation of the Group Number, considering the property of the graph and theorizing a faster multisource dijkstra algorithm.
   
