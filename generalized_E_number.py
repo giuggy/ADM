@@ -1,6 +1,6 @@
 import heapq
 
-def dijkstra(graph, initial, end):
+def dijkstra(graph, initial, end=None):
     '''
     Implementation of Dijkstra algorithm between two nodes
     :param graph: input graph
@@ -26,7 +26,13 @@ def dijkstra(graph, initial, end):
             if v not in visited or weight < visited[v]:
                 visited[v] = round(weight,2)
                 heapq.heappush(h, (weight, v))
-    return visited[end]
+    #if no ending node is specified we compute the generalized dijkstra            
+    if end == None:
+        return visited
+    else:
+        #in the case that we specify the ending node we retrieve only the
+#weight of the shortest path
+        return visited[end]
 
 
 def GroupNumber(graph, subset_of_nodes):
@@ -41,21 +47,19 @@ def GroupNumber(graph, subset_of_nodes):
 
     GroupNumber = {} #define a groupnumber dictionary {node: {sub_node : shortest_path)}}
     #we take all the nodes of the graph - the nodes of the subset
-    for node in [item for item in graph.nodes() if item not in subset_of_nodes]:
-        GroupNumber[node] = {}
+    
+    difference_set = list(set(graph.nodes())-set(subset_of_nodes))
+   
+    for idx, node in enumerate(difference_set):
         #initially we set a general weight = to infinite and each time we find a lower weight
         #we substitute the previous value 
         weight = float('Inf')
 
         try:
-            #calculate the shortest path between node and subnode and take the min value
-            for subnode in subset_of_nodes:
-                #we take the minimum path
-                if dijkstra(graph,node,subnode) < weight:
-                    GroupNumber[node].clear()
-                    GroupNumber[node] = dijkstra(graph,node,subnode)
-                    #update the current value of the weight
-                    weight = GroupNumber[node]
+            # Calculates the shortest path between the node and all the other nodes in the graph
+            # We select the minimum distance from node to a node X such that X is in subset.
+            all_paths = dijkstra(graph, node)
+            GroupNumber[node] = min(all_paths[x] for x in subset_of_nodes)
         except:
             pass
 
