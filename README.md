@@ -34,7 +34,7 @@ We have created this file to call all the functions we have build in order to fi
 
 
 # Generalized Erdos Number {Exercise III}
-  In this part we have implemanted the third part of the homework. In thr file generalized_E_number.py, we can find two function:
+  In this part we have implemanted the third part of the homework. In the file "generalized_E_number.py", we can find two function.
   The first one implements the algorithm of dijkstra between two nodes. The time of execution that we have obtained is more or less similar to the time requested by the method of networkx. 
-  The second function implements the method of Group number. For each node in the graph, it calculates the shortest path to all the subset nodes passed in input. In the end the result is computed taking for each node in the subset, the minimum weigth in the set of the shortest paths calculated previously.
+  The second function implements the method of Group number. Fist, it calculates the shortest path to all the subset nodes passed in input to all the nodes in the graph. In the end the result is computed taking for each node in the graph, the minimum weigth in the set of the shortest paths calculated previously.
   
